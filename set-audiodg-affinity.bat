@@ -21,9 +21,8 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 
 
-:: Set affinity
-PowerShell.exe "$Process = Get-Process audiodg; $Process.ProcessorAffinity=1"
-
+:: Set affinity and priority
+PowerShell.exe "$Process = Get-Process audiodg; $Process.ProcessorAffinity=1; $Process.PriorityClass=""High"""
 :: Affinity table
 ::Core # = Value = BitMask
 ::Core 1 = 1 = 00000001
