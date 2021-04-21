@@ -1,5 +1,5 @@
 .idea
 build
 dist
-voicemeeter-auto-affinity.spec
+install.spec
 __*
