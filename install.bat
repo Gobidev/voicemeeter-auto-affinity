@@ -40,6 +40,9 @@ del set-audiodg-affinity.bat 2>NUL
 :: add task scheduler job
 schtasks /create /sc ONLOGON /tn audiodg-affinity /tr %UserProfile%\set-audiodg-affinity.vbs /rl HIGHEST
 
+:: run vbs script once to set the affinity for current session
+%UserProfile%\set-audiodg-affinity.vbs
+
 :: Uninstall with
 :: schtasks /delete /f /tn audiodg-affinity
 
