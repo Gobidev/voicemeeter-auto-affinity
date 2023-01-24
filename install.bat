@@ -20,8 +20,8 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 
-:: install vbs script to %localappdata%
-echo CreateObject("Wscript.Shell").Run "PowerShell.exe ""$Process = Get-Process audiodg; $Process.ProcessorAffinity=1; $Process.PriorityClass=""""""High""""""""", 0, True > %localappdata%\set-audiodg-affinity.vbs
+:: install vbs script to %UserProfile%
+echo CreateObject("Wscript.Shell").Run "PowerShell.exe ""$Process = Get-Process audiodg; $Process.ProcessorAffinity=1; $Process.PriorityClass=""""""High""""""""", 0, True > %UserProfile%\set-audiodg-affinity.vbs
 :: Affinity table
 ::Core # = Value = BitMask
 ::Core 1 = 1 = 00000001
@@ -38,7 +38,10 @@ cd C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Sta
 del set-audiodg-affinity.bat 2>NUL
 
 :: add task scheduler job
-schtasks /create /sc ONLOGON /tn audiodg-affinity /tr %localappdata%\set-audiodg-affinity.vbs /rl HIGHEST
+schtasks /create /sc ONLOGON /tn audiodg-affinity /tr %UserProfile%\set-audiodg-affinity.vbs /rl HIGHEST
+
+:: run vbs script once to set the affinity for current session
+%UserProfile%\set-audiodg-affinity.vbs
 
 :: Uninstall with
 :: schtasks /delete /f /tn audiodg-affinity
