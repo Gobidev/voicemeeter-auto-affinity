@@ -1,5 +1,10 @@
 # voicemeeter-auto-affinity
 
+[![Github Downloads all Releases](https://img.shields.io/github/downloads/Gobidev/voicemeeter-auto-affinity/total)](https://github.com/Gobidev/voicemeeter-auto-affinity/releases)
+[![Github Downloads latest Release](https://img.shields.io/github/downloads/Gobidev/voicemeeter-auto-affinity/latest/total)](https://github.com/Gobidev/voicemeeter-auto-affinity/releases/latest)
+[![License](https://img.shields.io/github/license/Gobidev/voicemeeter-auto-affinity)](https://github.com/Gobidev/voicemeeter-auto-affinity/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Gobidev/voicemeeter-auto-affinity)](https://github.com/Gobidev/voicemeeter-auto-affinity/issues)
+
 Automatically sets the affinity of "audiodg.exe" to only one core on computer
 start to fix the crackling noises that can occur in VoiceMeeter.
 
