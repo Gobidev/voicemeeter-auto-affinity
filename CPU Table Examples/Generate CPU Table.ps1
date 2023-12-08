@@ -9,7 +9,7 @@ $totalThreads = $cpuInfo.NumberOfLogicalProcessors
 
 # Initialize StringBuilder for output formatting.
 $outputBuilder = New-Object System.Text.StringBuilder
-$outputBuilder.AppendLine(":: Affinity table for $($cpuInfo.Name) with Hyperthreading support")
+$outputBuilder.AppendLine(":: Affinity table for $($cpuInfo.Name) with Hyperthreading")
 
 # Define a function to format affinity values into bitmasks.
 Function Format-BitMask ($affinityValue) {
