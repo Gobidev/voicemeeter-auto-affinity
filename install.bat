@@ -64,6 +64,9 @@ del set-audiodg-affinity.bat 2>NUL
 :: add task scheduler job
 schtasks /create /sc ONLOGON /tn audiodg-affinity /delay 0000:20 /tr "wscript \"%UserProfile%\set-audiodg-affinity.vbs\"" /rl HIGHEST
 
+:: Creating scheduled task so it is more persistently applying changes as the process is controlled by the Windows Audio service and will stop and restart process as needed
+schtasks /create /sc MINUTE /tn audiodg-affinity-recurring /mo 5 /tr "wscript \"%UserProfile%\set-audiodg-affinity.vbs\"" /rl HIGHEST
+
 :: run vbs script once to set the affinity for current session
 wscript "%UserProfile%\set-audiodg-affinity.vbs"
 
