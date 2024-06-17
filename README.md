@@ -18,6 +18,12 @@ every login and wrote a new script that makes use of that.
 _Note: If you had v1 of the script installed, it is automatically uninstalled if
 you install v2._
 
+## New in v2.5
+
+The affinity will now be set periodically in addition to only on login. For more
+information, see
+[#11](https://github.com/Gobidev/voicemeeter-auto-affinity/pull/11).
+
 ## How to Install
 
 To install the script, download the `install.bat` file from the
@@ -26,11 +32,12 @@ and run it. That's it!
 
 ## How to Uninstall
 
-If you no longer want the audiodg affinity to be set at login, run the following
-command from an administrator command prompt:
+To remove the Task Scheduler tasks, run the following commands from an
+administrator command prompt:
 
 ```bat
 schtasks /delete /f /tn audiodg-affinity
+schtasks /delete /f /tn audiodg-affinity-recurring
 ```
 
 ## The Problem
